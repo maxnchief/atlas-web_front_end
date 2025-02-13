@@ -1,0 +1,9 @@
+@import 'variables';
+
+$list-names: alice, bob, charlie, dave;
+
+@each $name in $list-names {
+    .photo-#{$name} {
+        background-image: url('/images/#{$name}.jpg');
+    }
+}
