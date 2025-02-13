@@ -377,6 +377,12 @@
   .card-category {
     color: var(--color-primary);
   }
+
+  /* Section Latest news ============================= */
+
+  .section-latest-news {
+    flex-direction: row-reverse;
+  }
   
   /* Card WORK
       ============================= */
