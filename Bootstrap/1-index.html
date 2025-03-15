@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Holberton - Web Stack - Bootstrap</title>
+        <meta name="description" content="Bootstrap is a free and open-source CSS framework">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+    <style>
+         .Primary {
+            background-color: #007bff;
+            color: white;
+            padding: .5rem;
+            text-align: center;
+        }
+
+        .Success {
+            background-color: #28a745;
+            color: white;
+            padding: .5rem;
+            text-align: center;
+        }
+
+        .Danger {
+            background-color: #dc3545;
+            color: white;
+            padding: .5rem;
+            text-align: center;
+        }
+
+        .Warning {
+            background-color: #ffc107;
+            color: white;
+            padding: .5rem;
+            text-align: center;
+        }
+
+        .First-row {
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+            @media (min-width: 992px) {
+                .First-row > div {
+                    flex: 1;
+                }
+            }
+
+            @media (max-width: 991.99px) {
+                .First-row > div {  
+                    flex: 100%;
+                }
+            }
+        .Second-row {
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+            @media (min-width: 576px) {
+                .Second-row > div {
+                    flex: 1;
+                }
+            }
+
+            @media (max-width: 575.99px) {
+                .Second-row > div {  
+                    flex: 100%;
+                }
+            }
+    </style>
+    <body>
+        <div class="First-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+            <div class="Danger">Danger</div>
+            <div class="Warning">Warning</div>
+        </div>
+
+        <hr />
+
+        <div class="Second-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+            <div class="Danger">Danger</div>
+            <div class="Warning">Warning</div>
+        </div>
+
+        <hr />
+
+        <div class="Third-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+            <div class="Danger">Danger</div>
+        </div>
+
+        <hr />
+
+        <div class="Fourth-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+            <div class="Danger">Danger</div>
+            <div class="Warning">Warning</div>
+        </div>
+
+        <hr/>
+
+        <div class="Fifth-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+        </div>
+
+        <hr/>
+
+        <div class="Sixth-row">
+            <div class="Primary">Primary</div>
+            <div class="Success">Success</div>
+            <div class="Danger">Danger</div>
+        </div>
+    </body>
+</html>
