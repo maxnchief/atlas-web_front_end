@@ -70,6 +70,30 @@
                     flex: 100%;
                 }
             }
+
+        .Third-row {
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+            @media (min-width: 992px) {
+                .Third-row > div:first-child {
+                    flex: 1;
+                }
+
+                .Third-row > div:nth-child(2) {
+                    flex: 2;
+                }
+
+                .Third-row > div:nth-child(3) {
+                    flex: 50%;    
+                }
+            }
+            @media (max-width: 991.99px) {
+                .Third-row > div {  
+                    flex: 100%;
+                }
+            }
     </style>
     <body>
         <div class="First-row">
