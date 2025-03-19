@@ -8,6 +8,47 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0;
+            padding: .5rem;
+            background-color: "light"
+         }
+        header ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        header ul li {
+            display: flex;
+            align-items: center;
+        }
+        header ul li:first-child {
+            flex: 1;
+        }
+        header ul li:first-child img {
+            border-radius: 50%;
+        }
+        header ul li:not(:first-child) {
+            margin-left: 1rem;
+        }
+        header ul li a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+        header ul li a.active {
+            background-color: #6c757d;
+            color: white;
+            border-radius: 0.25rem;
+        }
+        
+    </style>
     <body>
         <header>
             <ul>
