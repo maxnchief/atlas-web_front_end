@@ -2,23 +2,23 @@
 <html lang="en" dir="ltr">
 
     <head>
-
         <meta charset="utf-8" />
         <title>Task 0</title>
-
         <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    </head>
 
+    <body>
         <script>
             function createFamilyTree() {
+
                 const table = $('<table></table>');
                 const thead = $('<thead></thead>');
-                const tbody = $('<tbody></tbody>');
-
                 const headerRow = $('<tr></tr>');
                 headerRow.append('<th>Firstname</th>');
                 headerRow.append('<th>Lastname</th>');
                 thead.append(headerRow);
-
+               
+                const tbody = $('<tbody></tbody>');
                 const rows = [
                     ['Guillaume', 'Salva'],
                     ['Paulette', 'Salva'],
@@ -39,10 +39,6 @@
 
             createFamilyTree();
         </script>
-    </head>
-
-    <body>
-
     </body>
 
 </html>
