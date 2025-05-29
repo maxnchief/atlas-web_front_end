@@ -1,1 +1,0 @@
-This is the directory for sass_css. A new language that uses uhhh... I'll learn
