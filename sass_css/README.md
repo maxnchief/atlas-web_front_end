@@ -1,0 +1,1 @@
+This directory is for the Sass project on the Atlas Intranet
