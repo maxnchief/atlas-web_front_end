@@ -1,9 +1,15 @@
 $text-color: #3D3D3D;
 $background-color: #6D6D6D;
+$main-text-color: #3D3D3D;
+$red-text-color: #FF0000;
 
 body {
-    color: $text-color;
+    color: $main-text-color;
     background-color: $background-color;
+
+    .red {
+        color: $red-text-color;
+    }
 }
 
 p {
