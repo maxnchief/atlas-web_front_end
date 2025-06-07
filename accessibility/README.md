@@ -1,0 +1,1 @@
+This is the Directory for the accessibility project on the Atlas Intranet
