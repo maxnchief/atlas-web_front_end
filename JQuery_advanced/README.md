@@ -1,1 +1,0 @@
-This directory is for the JQuery_advanced project on Atlas intranet. It will be using.... JQueries....Advanced!
