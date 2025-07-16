@@ -1,1 +1,0 @@
-This for the intranet project Javascript Advanced. Which will use lexical scoping and closure inside Javascript
