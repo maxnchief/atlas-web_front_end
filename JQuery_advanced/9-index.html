@@ -4,7 +4,13 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Task 7</title>
+        <title>Task 9</title>
+        
+        <style>
+            .loading {
+                opacity: 0.2;
+            }
+        </style>
 
     </head>
 
@@ -41,7 +47,19 @@
                 $('ul').append(li);
             }
 
+            function displayLoading(loading) {
+                const ul = $('ul').first();
+                
+                if (loading) {
+                    ul.wrap('<div class="loading"></div>');
+                } else {
+                    ul.unwrap();
+                }
+            }
+
             function queryWikipedia(search) {
+                displayLoading(true);
+                
                 const data = {
                     action: 'query',
                     list: 'search',
@@ -55,6 +73,7 @@
                     $.each(response.query.search, function(index, result) {
                         addNewArticle(result.pageid, result.title, result.snippet);
                     });
+                    displayLoading(false);
                 });
             }
 
