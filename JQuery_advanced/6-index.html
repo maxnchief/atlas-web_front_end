@@ -41,10 +41,10 @@
             }
 
             function createForm() {
-                $('table').before($('<input type="submit" value="Submit">'));
-                $('table').before($('<select><option value="after">After</option><option value="before">Before</option></select>'));
-                $('table').before($('<input type="text" placeholder="Last Name">'));
                 $('table').before($('<input type="text" placeholder="First Name">'));
+                $('table').before($('<input type="text" placeholder="Last Name">'));
+                $('table').before($('<select><option value="after">After</option><option value="before">Before</option></select>'));
+                $('table').before($('<input type="submit" value="Submit">'));
                 
                 $('input[type="submit"]').click(function() {
                     const firstName = $('input[type="text"]:first').val();
