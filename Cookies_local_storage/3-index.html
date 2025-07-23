@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Login to the website</h2>
+        
+        <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" placeholder="first name">
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        
+        <div>
+            <button onclick="setCookies()">Log me in</button>
+        </div>
+    </div>
+
+    <script>
+        function setCookies() {
+            const firstname = document.getElementById('firstname').value;
+            const email = document.getElementById('email').value;
+            
+            // Set cookies that expire in 10 days
+            const expires = new Date();
+            expires.setDate(expires.getDate() + 10);
+            
+            document.cookie = `firstname=${firstname}; expires=${expires.toUTCString()}; path=/`;
+            document.cookie = `email=${email}; expires=${expires.toUTCString()}; path=/`;
+            
+            showWelcomeMessageOrForm();
+        }
+        
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            
+            return '';
+        }
+        
+        function showForm() {
+            // Remove welcome message if it exists
+            const welcomeMessage = document.querySelector('h1');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+            
+            // Show the form
+            document.getElementById('loginForm').style.display = 'block';
+        }
+        
+        function hideForm() {
+            document.getElementById('loginForm').style.display = 'none';
+        }
+        
+        function deleteCookiesAndShowForm() {
+            // Remove cookies by setting expiration date in the past
+            document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+            document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+            
+            // Show the form
+            showForm();
+        }
+        
+        function showWelcomeMessageOrForm() {
+            const firstname = getCookie('firstname');
+            
+            if (firstname === '') {
+                // User not logged in, show form
+                showForm();
+            } else {
+                // User logged in, hide form and show welcome message
+                hideForm();
+                
+                // Create welcome message with JavaScript
+                const h1 = document.createElement('h1');
+                h1.innerHTML = `Welcome ${firstname} `;
+                
+                // Create logout link
+                const logoutLink = document.createElement('a');
+                logoutLink.textContent = '(logout)';
+                logoutLink.href = '#';
+                logoutLink.style.fontWeight = 'normal';
+                logoutLink.style.fontStyle = 'italic';
+                logoutLink.style.marginLeft = '10px';
+                
+                logoutLink.onclick = function(e) {
+                    e.preventDefault();
+                    deleteCookiesAndShowForm();
+                };
+                
+                h1.appendChild(logoutLink);
+                document.body.appendChild(h1);
+            }
+        }
+        
+        // Check login status when page loads
+        window.onload = function() {
+            showWelcomeMessageOrForm();
+        };
+    </script>
+</body>
+</html>
