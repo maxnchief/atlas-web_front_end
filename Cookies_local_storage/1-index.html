@@ -30,7 +30,7 @@
             
             // Set cookies that expire in 10 days
             const expires = new Date();
-            expires.setTime(expires.getTime() + (10 * 24 * 60 * 60 * 1000));
+            expires.setDate(expires.getDate() + 10);
             
             document.cookie = `firstname=${firstname}; expires=${expires.toUTCString()}; path=/`;
             document.cookie = `email=${email}; expires=${expires.toUTCString()}; path=/`;
