@@ -1,0 +1,1 @@
+This is the directory for the Cookies and Local Storage project on the Atlas Intranet.
