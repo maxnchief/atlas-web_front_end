@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Login to the website</h2>
+        
+        <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" placeholder="first name">
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        
+        <div>
+            <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+        </div>
+    </div>
+
+    <!-- js-cookie CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
+    <script>
+        function setCookiesAndShowWelcomeMessage() {
+            const firstname = document.getElementById('firstname').value;
+            const email = document.getElementById('email').value;
+            
+            // Set cookies that expire in 10 days using js-cookie
+            Cookies.set('firstname', firstname, { expires: 10 });
+            Cookies.set('email', email, { expires: 10 });
+            
+            showWelcomeMessageOrForm();
+        }
+        
+        function showForm() {
+            // Remove welcome message if it exists
+            const welcomeMessage = document.querySelector('h1');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+            
+            // Show the form
+            document.getElementById('loginForm').style.display = 'block';
+        }
+        
+        function hideForm() {
+            document.getElementById('loginForm').style.display = 'none';
+        }
+        
+        function deleteCookiesAndShowForm() {
+            // Remove cookies using js-cookie
+            Cookies.remove('firstname');
+            Cookies.remove('email');
+            
+            // Show the form
+            showForm();
+        }
+        
+        function showWelcomeMessageOrForm() {
+            const firstname = Cookies.get('firstname');
+            
+            if (!firstname) {
+                // User not logged in, show form
+                showForm();
+            } else {
+                // User logged in, hide form and show welcome message
+                hideForm();
+                
+                // Create welcome message with JavaScript
+                const h1 = document.createElement('h1');
+                h1.innerHTML = `Welcome ${firstname} `;
+                
+                // Create logout link
+                const logoutLink = document.createElement('a');
+                logoutLink.textContent = '(logout)';
+                logoutLink.href = '#';
+                logoutLink.style.fontWeight = 'normal';
+                logoutLink.style.fontStyle = 'italic';
+                logoutLink.style.marginLeft = '10px';
+                
+                logoutLink.onclick = function(e) {
+                    e.preventDefault();
+                    deleteCookiesAndShowForm();
+                };
+                
+                h1.appendChild(logoutLink);
+                document.body.appendChild(h1);
+            }
+        }
+        
+        // Check login status when page loads
+        window.onload = function() {
+            showWelcomeMessageOrForm();
+        };
+    </script>
+</body>
+</html>
